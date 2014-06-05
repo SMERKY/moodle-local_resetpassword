@@ -1,0 +1,33 @@
+#computerchecker{
+	width: 60%;
+	min-width: 220px;
+	padding: 8px 35px 8px 14px;
+	margin: auto;
+	margin-bottom: 20px;
+	background-color: #fcf8e3;
+	border: 1px solid #fbeed5;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	text-align: center;
+}
+#computerchecker span{
+	color: #c09853;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+#computerchecker a:hover{
+	color: #c09853;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
+
+.img-icon {float:left; width:25px; margin:0 5px;}
+.download-link {text-align:center;}
+.browser-download {width: 110px; margin: 0 auto;}
+.plugin-download {width: 80px; margin: 0 auto;}
+#versions table{ margin: 10px auto;}
+#versions table .table-title {background-color:#999; padding:5px; text-align:center; font-weight:bold; color:#fff;}
+#versions table .table-title div {float:right;}
+#versions table .table-item {background-color:#888; width:150px; height:50px;}
+#versions table .table-light {background-color:#777;}
+#versions table .table-dark {background-color:#aaa;}
+#versions table .ver-box { width:250px; text-align:center;}
