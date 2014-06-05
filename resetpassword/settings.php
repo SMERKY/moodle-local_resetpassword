@@ -46,6 +46,6 @@ if ($hassiteconfig) {
         'local_resetpassword/privatekey', 
         get_string('privatekey', 'local_resetpassword'),
         get_string('privatekey_desc', 'local_resetpassword'),
-        '10'
+        'RANDOMLY GENERATED STRING'
     ));
 }
