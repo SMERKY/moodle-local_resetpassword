@@ -24,7 +24,21 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$enabled = get_config('local_computerchecker', 'enabled');
-if($enabled){
-	
+/**
+* Function isValidKey
+* 	Checks stored private key and email against the key sent
+* 	@param k - Key sent in post
+* 	@param e - Email requesting password reset
+*	@param pk - Stored private key from moodle
+*	@return bool - true if k is valid
+*/
+function isValidKey($k, $e, $pk){
+	$tempKey = $e + $pk;
+	$tempKey = md5($tempKey);
+
+	if($tempKey != $k){
+		return false;
+	}
+
+	return true;
 }

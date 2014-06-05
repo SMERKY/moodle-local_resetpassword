@@ -40,5 +40,10 @@ if ($hassiteconfig) {
     $description = get_string('enabled_desc', 'local_resetpassword');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $settings->add($setting);
-}
 
+    $name = 'local_resetpassword/privatekey';
+    $title = get_string('privatekey', 'local_resetpassword');
+    $description = get_string('privatekey_desc', 'local_resetpassword');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $settings->add($setting);
+}
