@@ -35,15 +35,17 @@ if ($hassiteconfig) {
     $settings = new admin_settingpage('local_resetpassword', get_string('pluginname', 'local_resetpassword'));
     $ADMIN->add('localplugins', $settings);
 
-    $name = 'local_resetpassword/enabled';
-    $title = get_string('enabled', 'local_resetpassword');
-    $description = get_string('enabled_desc', 'local_resetpassword');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    $settings->add($setting);
+    $settings->add(new admin_setting_configcheckbox(
+        'local_resetpassword/enabled', 
+        get_string('enabled', 'local_resetpassword'),
+        get_string('enabled_desc', 'local_resetpassword'),
+        0
+    ));
 
-    $name = 'local_resetpassword/privatekey';
-    $title = get_string('privatekey', 'local_resetpassword');
-    $description = get_string('privatekey_desc', 'local_resetpassword');
-    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
-    $settings->add($setting);
+    $settings->add(new admin_setting_configtext(
+        'local_resetpassword/privatekey', 
+        get_string('privatekey', 'local_resetpassword'),
+        get_string('privatekey_desc', 'local_resetpassword'),
+        '10'
+    ));
 }

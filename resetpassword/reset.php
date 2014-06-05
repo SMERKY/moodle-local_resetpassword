@@ -21,7 +21,6 @@
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// Include config.php
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
 require_once(dirname(__FILE__).'/lib.php');
 require_once(dirname(dirname(dirname(__FILE__))).'/login/lib.php');
@@ -29,10 +28,10 @@ require_once(dirname(dirname(dirname(__FILE__))).'/login/lib.php');
 $key = required_param('k', PARAM_RAW);
 $email = required_param('e', PARAM_RAW);
 
-$enabled = get_config('local_computerchecker', 'enabled');
-$privatekey = get_config('local_computerchecker', 'privatekey');
+$enabled = get_config('local_resetpassword', 'enabled');
+$privatekey = get_config('local_resetpassword', 'privatekey');
 
-if(!$enabled){
+if($enabled == 0){
 	throw new moodle_exception('Plugin not enabled');
 }
 
@@ -45,8 +44,16 @@ if($user == false){
 	throw new moodle_exception('User does not exist');
 }
 
+if(isAdminUser($user)){
+	throw new moodle_exception('Cannot reset admin password');
+}
+
 //send password reset email
 $resetrecord = core_login_generate_password_reset($user);
 $sendresult = send_password_change_confirmation_email($user, $resetrecord);
 
-echo $sendresult;
+if($sendresult == 1){
+	echo 'true';
+}else{
+	echo 'false';
+}

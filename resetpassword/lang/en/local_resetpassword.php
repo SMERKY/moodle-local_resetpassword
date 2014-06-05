@@ -28,3 +28,5 @@
 $string['pluginname'] = 'Reset Password';
 $string['enabled'] = 'Enabled';
 $string['enabled_desc'] = 'Allow external reset password requests';
+$string['privatekey'] = 'Private Key';
+$string['privatekey_desc'] = 'Private key used for encryption in the request';

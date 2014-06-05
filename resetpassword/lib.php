@@ -14,7 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-
 /**
  * Reset Password
  *
@@ -24,16 +23,18 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/**
-* Function isValidKey
-* 	Checks stored private key and email against the key sent
-* 	@param k - Key sent in post
-* 	@param e - Email requesting password reset
-*	@param pk - Stored private key from moodle
-*	@return bool - true if k is valid
-*/
+
+
+	/**
+	* 	Function isValidKey
+	* 	Checks stored private key and email against the key sent
+	* 	@param k - Key sent in post
+	* 	@param e - Email requesting password reset
+	*	@param pk - Stored private key from moodle
+	*	@return bool - true if k is valid
+	*/
 function isValidKey($k, $e, $pk){
-	$tempKey = $e + $pk;
+	$tempKey = $e . $pk;
 	$tempKey = md5($tempKey);
 
 	if($tempKey != $k){
@@ -41,4 +42,31 @@ function isValidKey($k, $e, $pk){
 	}
 
 	return true;
+}
+
+	/**
+	* 	Function getUserId
+	* 	Checks stored private key and email against the key sent
+	* 	@param email - Email requesting password reset
+	*	@return user - user account or false
+	*/
+function getUserId($email){
+	global $DB;
+
+	$user = $DB->get_record('user', array('email'=>$email));
+	if($resuserult == false){
+		return false;
+	}
+
+	return $user;
+}
+
+	/**
+	* 	Function isAdminUser
+	* 	Checks stored private key and email against the key sent
+	* 	@param user - User account requesting password reset
+	*	@return bool - true if admin, false if not
+	*/
+function isAdminUser($user) {
+	return has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM), $user); 
 }
