@@ -35,16 +35,16 @@ if($enabled == 0){
 	throw new moodle_exception('Plugin not enabled');
 }
 
-if(!isValidKey($key, $email, $privatekey)){
+if(!resetpassword_valid_key($key, $email, $privatekey)){
 	throw new moodle_exception('Invalid Private Key');
 }
 
-$user = getUserId($email);
+$user = resetpassword_get_user_id($email);
 if($user == false){
 	throw new moodle_exception('User does not exist');
 }
 
-if(isAdminUser($user)){
+if(is_siteadmin($user)){
 	throw new moodle_exception('Cannot reset admin password');
 }
 

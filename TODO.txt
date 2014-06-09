@@ -1,0 +1,14 @@
+-You should consider improving your current getUserId() function to take that into account (basically, it should find
+only user records with mnethostid equal to $CFG->mnet_localhost_id. Please grep the Moodle core code for examples of similar
+queries.
+
+-Please look at the is_siteadmin() core function and consider using that instead of the capability check. 
+--(NEEDS TO BE CHECKED BUT HAVE IMPLEMENTED FIX AND COMMENTED OLD FUNCTION)
+
+-Please note that the organisation of your plugin repository at Github does not allow folks to clone it directly into their Moodle tree.
+We suggest that in order to facilitate contributions to your code.
+
+-limit password resets??
+
+-codechecker
+

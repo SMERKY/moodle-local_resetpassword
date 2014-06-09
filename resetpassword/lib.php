@@ -33,7 +33,7 @@
 	*	@param pk - Stored private key from moodle
 	*	@return bool - true if k is valid
 	*/
-function isValidKey($k, $e, $pk){
+function resetpassword_valid_key($k, $e, $pk){
 	$tempKey = $e . $pk;
 	$tempKey = md5($tempKey);
 
@@ -50,7 +50,7 @@ function isValidKey($k, $e, $pk){
 	* 	@param email - Email requesting password reset
 	*	@return user - user account or false
 	*/
-function getUserId($email){
+function resetpassword_get_user_id($email){
 	global $DB;
 
 	$user = $DB->get_record('user', array('email'=>$email));
@@ -67,6 +67,6 @@ function getUserId($email){
 	* 	@param user - User account requesting password reset
 	*	@return bool - true if admin, false if not
 	*/
-function isAdminUser($user) {
-	return has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM), $user); 
-}
+// function resetpassword_is_admin_user($user) {
+// 	return has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM), $user); 
+// }

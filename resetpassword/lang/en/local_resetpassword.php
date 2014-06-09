@@ -16,15 +16,13 @@
 
 
 /**
- * Local Redirect
- *
- * This local plugin enrols and redirects users to a pre-configured course after login
  *
  * @package    local
  * @subpackage resetpassword
  * @copyright  2014 Aaron Leggett
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 $string['pluginname'] = 'Reset Password';
 $string['enabled'] = 'Enabled';
 $string['enabled_desc'] = 'Allow external reset password requests';
