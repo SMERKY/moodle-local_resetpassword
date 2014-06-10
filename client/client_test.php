@@ -6,7 +6,7 @@ $emailAddress	= 'USER EMAIL ADDRESS'; 	//of the user you want to send reset emai
 $privateKey		= 'PRIVATE KEY'; 			//set in moodle as a plugin setting
 
 /* MAKE PRIVATE KEY */
-$encryptedKey 	= md5($emailAddress . $privateKey);
+$encryptedKey 	= sha1(md5($emailAddress . $privateKey));
 $serverUrl 		= trim($serverUrl, "/");		//removes trailing / in your serverUrl (just incase)
 $serverUrl 		= $serverUrl.'/local/resetpassword/reset.php';
 
