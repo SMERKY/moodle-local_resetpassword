@@ -24,4 +24,12 @@
  */
 
 require_once(dirname(dirname(dirname(__FILE__))).'/config.php');
-require_once(dirname(__FILE__).'/lib.php');
+
+if(is_siteAdmin()){
+	$url = new moodle_url('/admin/settings.php', array('section'=>'local_resetpassword'));
+}else{
+	$url = new moodle_url('/');
+}
+
+redirect($url);
+

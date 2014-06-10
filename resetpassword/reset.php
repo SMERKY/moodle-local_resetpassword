@@ -35,11 +35,11 @@ if($enabled == 0){
 	throw new moodle_exception('Plugin not enabled');
 }
 
-if(!resetpassword_valid_key($key, $email, $privatekey)){
+if(!local_resetpassword_valid_key($key, $email, $privatekey)){
 	throw new moodle_exception('Invalid Private Key');
 }
 
-$user = resetpassword_get_user_id($email);
+$user = local_resetpassword_get_user_id($email);
 if($user == false){
 	throw new moodle_exception('User does not exist');
 }

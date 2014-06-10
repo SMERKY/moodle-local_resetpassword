@@ -33,7 +33,7 @@
 	*	@param pk - Stored private key from moodle
 	*	@return bool - true if k is valid
 	*/
-function resetpassword_valid_key($k, $e, $pk){
+function local_resetpassword_valid_key($k, $e, $pk){
 	$tempKey = $e . $pk;
 	$tempKey = md5($tempKey);
 
@@ -50,7 +50,7 @@ function resetpassword_valid_key($k, $e, $pk){
 	* 	@param email - Email requesting password reset
 	*	@return user - user account or false
 	*/
-function resetpassword_get_user_id($email){
+function local_resetpassword_get_user_id($email){
 	global $DB;
 
 	$user = $DB->get_record('user', array('email'=>$email));
