@@ -35,7 +35,7 @@
 	*/
 function local_resetpassword_valid_key($k, $e, $pk){
 	$tempKey = $e . $pk;
-	$tempKey = sha1(md5($tempKey));
+	$tempKey = md5($tempKey);
 
 	if($tempKey != $k){
 		return false;
@@ -54,10 +54,10 @@ function local_resetpassword_valid_key($k, $e, $pk){
 	*	@return user - user account or false
 	*/
 function local_resetpassword_get_user_id($email){
-	global $DB;
+	global $DB, $CFG;
 
 	$user = $DB->get_record('user', array('email'=>$email, 'mnethostid'=>$CFG->mnet_localhost_id));
-	if($resuserult == false){
+	if($user == false){
 		return false;
 	}
 
@@ -66,13 +66,3 @@ function local_resetpassword_get_user_id($email){
 	// checks mnethostid of the user to make sure the user is
 	// from this moodle. Only really applies when Moodle Networking is setup
 }
-
-	/**
-	* 	Function isAdminUser
-	* 	Checks stored private key and email against the key sent
-	* 	@param user - User account requesting password reset
-	*	@return bool - true if admin, false if not
-	*/
-// function resetpassword_is_admin_user($user) {
-// 	return has_capability('moodle/site:config', get_context_instance(CONTEXT_SYSTEM), $user); 
-// }
