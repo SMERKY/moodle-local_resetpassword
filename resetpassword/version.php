@@ -23,8 +23,8 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$plugin->version  = 2014061102;
+$plugin->version  = 2014071002;
 $plugin->requires = 2012110900; // YYYYMMDDHH (This is the release version for Moodle 2.4)
-$plugin->release = '1.0 (Build: 2014061102)';
+$plugin->release = '1.0 (Build: 20140710)';
 $plugin->maturity = MATURITY_STABLE;
 $plugin->component = 'local_resetpassword';

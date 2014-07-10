@@ -32,20 +32,20 @@ $enabled = get_config('local_resetpassword', 'enabled');
 $privatekey = get_config('local_resetpassword', 'privatekey');
 
 if($enabled == 0){
-	throw new moodle_exception('Plugin not enabled');
+	echo 'PluginNotEnabled';
 }
 
 if(!local_resetpassword_valid_key($key, $email, $privatekey)){
-	throw new moodle_exception('Invalid Private Key');
+	echo 'InvalidPrivateKey';
 }
 
 $user = local_resetpassword_get_user_id($email);
 if($user == false){
-	throw new moodle_exception('User does not exist');
+	echo 'UserDoesNotExist';
 }
 
 if(is_siteadmin($user)){
-	throw new moodle_exception('Cannot reset admin password');
+	echo 'CannotResetAdminPassword';
 }
 
 //send password reset email
